@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  orientdb:
+    image: orientdb
+    restart: always
+    environment:
+      ORIENTDB_ROOT_PASSWORD: root
+    volumes:
+    #   NOTE: don't provide an empty config folder as volume, 
+    #   because OrientDB will startup with a very minimal configuration.
+      # - ./orientdb/config:/orientdb/config
+      - ~/nosql/orientdb/databases:/orientdb/databases
+      - ~/nosql/orientdb/backup:/orientdb/backup
+    ports:
+      - "2424:2424"
+      - "2480:2480"
+  api:
+    build:
+      context: ./
+      dockerfile: ./api.dockerfile    
+    ports:
+      - "5000:5000"
+    depends_on:
+      - orientdb

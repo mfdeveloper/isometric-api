@@ -1,0 +1,5 @@
+source https://www.nuget.org/api/v2
+source https://api.nuget.org/v3/index.json
+
+nuget OrientDB-Net.binary.Innov8tive
+nuget Microsoft.AspNetCore.Mvc.Versioning
