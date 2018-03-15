@@ -17,7 +17,7 @@ services:
       - "2480:2480"
   api:
     build:
-      context: ./
+      context: ./api/dotnet
       dockerfile: ./api.dockerfile    
     ports:
       - "5000:5000"
